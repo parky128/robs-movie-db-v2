@@ -1,0 +1,65 @@
+{
+  "WELCOME": "Welcome to Robs Movie Database, Your one stop show for all your movie and tv show trivia needs!",
+  "INSTRUCTIONS": "Use the quick search bar above or for more custom queries use the Advanced Search also located above.",
+  "FOOTER_MESSAGE": "This product uses the TMDb API but is not endorsed or certified by",
+  "CAST": "Cast",
+  "OVERVIEW": "Overview",
+  "IN": "In",
+  "SEARCH_PLACEHOLDER": "Search for an Actor, Actress or Movie...",
+  "ADVANCED_SEARCH_BUTTON": "Advanced Search",
+  "HOME_NAV_LINK": "Home",
+  "LANGUAGE": {
+    "EN": "English",
+    "DE": "German"
+  },
+  "TRENDING": {
+    "MOVIES_HEADING": "Trending Movies (last 7 days)",
+    "SHOWS_HEADING": "Trending Shows (last 7 days)"
+  },
+  "MOVIE": {
+    "RELEASED": "Released",
+    "BUDGET": "Budget",
+    "RUNTIME": "Runtime"
+  },
+  "PERSON": {
+    "BIOGRAPHY": "Biography",
+    "BORN": "Born",
+    "DIED": "Died on",
+    "PLACE_OF_BIRTH": "Place of Birth",
+    "MOVIE_APPEARANCES": "Movie Appearances",
+    "TV_APPEARANCES": "TV Appearances",
+    "IMDB_PROFILE": "View IMDB Profile",
+    "BEST_KNOWN_FOR": "Best Known For"
+  },
+  "TV_SHOW": {
+    "SEASONS": "Seasons",
+    "EPISODES": "Episodes",
+    "STATUS": "Status",
+    "FIRST_AIR_DATE": "First Air Date",
+    "LAST_AIR_DATE": "Last Air Date"
+  },
+  "ADVANCED_SEARCH": {
+    "HEADING": "Advanced Movie Search",
+    "INSTRUCTIONS": "All fields below are optional, use as few or as many as you like",
+    "INCLUDE_ACTORS_ACTRESSES": "Include Actors\\Actresses",
+    "INCLUDE_GENRES": "Include Genres",
+    "INCLUDE_RELEASE_DATES": "Include Release Dates",
+    "RELEASE_DATE_GTE": "Greater than or Equal to",
+    "RELEASE_DATE_LTE": "Less than or Equal to",
+    "SEARCH_RESULTS": "Search Results",
+    "SEARCH_ACTOR_ACTRESS_PLACEHOLDER": "Search for Actors and Actresses",
+    "DATE_PICKER_PLACEHOLDER": "Choose a date"
+  },
+  "GENRES": "Genres",
+  "MINUTES": "Minutes",
+  "POPULARITY": "Popularity",
+  "VOTE_COUNT": "Vote Count",
+  "VOTE_AVERAGE": "Vote Average",
+  "VISIT_HOME_PAGE": "Visit Home Page",
+  "PAGE": "Page",
+  "OF": "of",
+  "BUTTON_ACTIONS": {
+    "CLEAR": "Clear",
+    "SEARCH": "Search"
+  }
+}

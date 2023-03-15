@@ -1,0 +1,65 @@
+{
+  "WELCOME": "Willkommen zu Robs Movie Database. Ihre One-Stop-Show für alle Ihre Film-und TV-Show Trivia braucht!",
+  "INSTRUCTIONS": "Verwenden Sie die Schnellsuchleiste oben oder für mehr benutzerdefinierte Abfragen verwenden Sie die Erweiterte Suche auch oben.",
+  "FOOTER_MESSAGE": "Dieses Produkt verwendet die TMDb-API, wird aber nicht empfohlen oder zertifiziert",
+  "CAST": "Besetzung",
+  "OVERVIEW": "Überblick",
+  "IN": "Im",
+  "SEARCH_PLACEHOLDER": "Suche nach einem Schauspieler, einer Schauspielerin oder einem Film...",
+  "ADVANCED_SEARCH_BUTTON": "Erweiterte Suche",
+  "HOME_NAV_LINK": "Zuhause",
+  "LANGUAGE": {
+    "EN": "Englisch",
+    "DE": "Deutsche"
+  },
+  "TRENDING": {
+    "MOVIES_HEADING": "Trendfilme (Letzten 7 Tage)",
+    "SHOWS_HEADING": "Trend-Shows (Letzten 7 Tage)"
+  },
+  "MOVIE": {
+    "RELEASED": "Freigegeben",
+    "BUDGET": "Budget",
+    "RUNTIME": "Laufzeit"
+  },
+  "PERSON": {
+    "BIOGRAPHY": "Biografie",
+    "BORN": "Geboren",
+    "DIED": "Gestorben an",
+    "PLACE_OF_BIRTH": "Geburtsort",
+    "MOVIE_APPEARANCES": "Filmauftritte",
+    "TV_APPEARANCES": "Fernsehauftritte",
+    "IMDB_PROFILE": "IMDB-Profil anzeigen",
+    "BEST_KNOWN_FOR": "Bekannt für"
+  },
+  "TV_SHOW": {
+    "SEASONS": "Jahreszeiten",
+    "EPISODES": "Episoden",
+    "STATUS": "Status",
+    "FIRST_AIR_DATE": "Erstes Luftdatum",
+    "LAST_AIR_DATE": "Letztes Air Date"
+  },
+  "ADVANCED_SEARCH": {
+    "HEADING": "Erweiterte Filmsuche",
+    "INSTRUCTIONS": "Alle Felder unten sind optional, verwenden Sie so wenige oder so viele wie Sie möchten",
+    "INCLUDE_ACTORS_ACTRESSES": "Schauspieler\\Schauspielerinnen einbeziehen",
+    "INCLUDE_GENRES": "Genres einschließen",
+    "INCLUDE_RELEASE_DATES": "Veröffentlichungsdatum einschließens",
+    "RELEASE_DATE_GTE": "Größer als oder gleich wie",
+    "RELEASE_DATE_LTE": "Gleich oder kleiner als",
+    "SEARCH_RESULTS": "Suchergebnisse",
+    "SEARCH_ACTOR_ACTRESS_PLACEHOLDER": "Suche nach Schauspielern und Schauspielerinnen",
+    "DATE_PICKER_PLACEHOLDER": "Wählen Sie ein Datum"
+  },
+  "GENRES": "Genres",
+  "MINUTES": "Protokoll",
+  "POPULARITY": "Popularität",
+  "VOTE_COUNT": "Stimmenanzahl",
+  "VOTE_AVERAGE": "Stimmen Sie Durchschnitt ab",
+  "VISIT_HOME_PAGE": "Besuchen Sie die Startseite",
+  "PAGE": "Seite",
+  "OF": "von",
+  "BUTTON_ACTIONS": {
+    "CLEAR": "Klar",
+    "SEARCH": "Suche"
+  }
+}

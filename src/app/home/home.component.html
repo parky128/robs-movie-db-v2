@@ -1,0 +1,40 @@
+<p>
+  {{ 'WELCOME' | translate }}
+</p>
+<div class="instruction-text" [innerHTML]="'INSTRUCTIONS' | translate"></div>
+<mat-card>
+  <mat-card-content>
+    <div>
+      <h2>{{'TRENDING.MOVIES_HEADING' | translate}}</h2>
+      <mat-list class="trending">
+        <mat-list-item *ngFor="let movie of trendingMovies; let i = index;">
+          <div class="trending-item">
+            <div>
+              <img [src]="posterUrlPath(movie.poster_path)" *ngIf="movie.poster_path" />
+            </div>
+            <div>
+              <div>{{i+1}}. <a routerLink="/movie/{{movie.id}}">{{movie.title}} ({{movie.release_date | date : 'yyyy'}})</a></div>
+              <div class="trending-item-scores">{{'POPULARITY' | translate | lowercase}}: {{movie.popularity}} | {{'VOTE_AVERAGE' | translate | lowercase}}: {{movie.vote_average}} | {{'VOTE_COUNT' | translate | lowercase}}: {{movie.vote_count}}</div>
+            </div>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <div>
+      <h2>{{'TRENDING.SHOWS_HEADING' | translate}}</h2>
+      <mat-list class="trending">
+        <mat-list-item *ngFor="let show of trendingShows; let i = index;">
+          <div class="trending-item">
+            <div>
+              <img [src]="posterUrlPath(show.poster_path)" *ngIf="show.poster_path" />
+            </div>
+            <div>
+              <div>{{i+1}}. <a routerLink="/tv/{{show.id}}">{{show.name}} ({{show.first_air_date | date : 'yyyy'}})</a></div>
+              <div class="trending-item-scores">{{'POPULARITY' | translate | lowercase}}: {{show.popularity}} | {{'VOTE_AVERAGE' | translate | lowercase}}: {{show.vote_average}} | {{'VOTE_COUNT' | translate | lowercase}}: {{show.vote_count}}</div>
+            </div>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-card-content>
+</mat-card>
