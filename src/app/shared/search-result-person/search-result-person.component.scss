@@ -1,0 +1,5 @@
+@import "../../../globals";
+
+:host {
+  @include search-result-item-layout()
+}

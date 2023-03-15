@@ -7,4 +7,6 @@ export class MovieCast {
   name?: string;
   order?: number;
   profile_path?: string;
+  release_date?: string;
+  title?: string;
 }

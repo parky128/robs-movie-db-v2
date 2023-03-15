@@ -3,7 +3,7 @@
     <div class="app-name">
       <span>RMDb</span>
     </div>
-    <!-- <app-search *ngIf="showSearch"></app-search> -->
+    <app-search *ngIf="showSearch"></app-search>
     <button mat-raised-button (click)="goToAdvancedSearch()" *ngIf="showSearch">
       {{'ADVANCED_SEARCH_BUTTON' | translate}}
     </button>

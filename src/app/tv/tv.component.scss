@@ -1,0 +1,17 @@
+@import '../../globals.scss';
+
+:host {
+  & .profile-details {
+    @include profile-details()
+  }
+  & mat-list-item  {
+    margin-bottom: 8px;
+    height: unset;
+    & img {
+      margin-right: 8px;
+    }
+  }
+  .show-summary {
+    @include main-record-summary();
+  }
+}

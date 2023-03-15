@@ -11,6 +11,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './home/home.module';
 import { ApiConfigService } from './services/api-config/api-config.service';
 import { RouterModule } from '@angular/router';
+import { SearchComponent } from './search/search.component';
+import { SearchModule } from './search/search.module';
 
 export function appConfigProvider(apiConfigService: ApiConfigService) {
   return () => apiConfigService.getApiConfig();
@@ -34,7 +36,8 @@ export function appConfigProvider(apiConfigService: ApiConfigService) {
         deps: [HttpClient]
       }
     }),
-    HomeModule
+    HomeModule,
+    SearchModule
   ],
   providers: [
     { provide: APP_INITIALIZER, useFactory: appConfigProvider, deps: [ApiConfigService], multi: true }

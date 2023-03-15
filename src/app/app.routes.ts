@@ -1,16 +1,21 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
 export const AppRoutes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
+  {
+    path: 'movie',
+    loadChildren: () => import('./movie/movie.module').then(m => m.MovieModule)
+  },
+  {
+    path: 'person',
+    loadChildren: () => import('./person/person.module').then(m => m.PersonModule)
+  },
+  {
+    path: 'tv',
+    loadChildren: () => import('./tv/tv.module').then(m => m.TvModule)
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
-
-// @NgModule({
-//   imports: [RouterModule.forRoot(routes)],
-//   exports: [RouterModule]
-// })
-// export class AppRoutingModule { }

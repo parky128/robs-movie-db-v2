@@ -1,0 +1,35 @@
+<mat-card>
+  <h1>{{movie.title}} ({{movie.release_date | date : 'yyyy'}})</h1>
+  <mat-card-subtitle>{{movie.tagline}}</mat-card-subtitle>
+  <mat-card-content>
+    <div class="profile-details">
+      <img src="{{moviePosterUrl}}">
+      <div class="movie-summary">
+        <div *ngIf="movie.genres"><label>{{'GENRES' | translate}}: </label><span *ngFor="let genre of movie.genres; last as isLast">{{genre.name}}<span *ngIf="!isLast"> | </span></span></div>
+        <div *ngIf="movie.release_date"><label>{{'MOVIE.RELEASED' | translate}}:</label> {{movie.release_date | date : 'longDate'}}</div>
+        <div *ngIf="movie.budget"><label>{{'MOVIE.BUDGET' | translate}}:</label> {{movie.budget | currency }}</div>
+        <div *ngIf="movie.runtime"><label>{{'MOVIE.RUNTIME' | translate}}:</label> {{movie.runtime}} {{'MINUTES' | translate}}</div>
+        <div *ngIf="movie.popularity"><label>{{'POPULARITY' | translate}}:</label> {{movie.popularity}} </div>
+        <div *ngIf="movie.vote_average"><label>{{'VOTE_AVERAGE' | translate}}:</label> {{movie.vote_average}} </div>
+        <div *ngIf="movie.vote_count"><label>{{'VOTE_COUNT' | translate}}:</label> {{movie.vote_count}}</div>
+        <a *ngIf="movie.homepage" href="{{movie.homepage}}" target="_blank">{{'VISIT_HOME_PAGE' | translate}}</a>
+      </div>
+    </div>
+    <h2>{{'OVERVIEW' | translate}}</h2>
+    <p>
+      {{movie.overview}}
+    </p>
+    <mat-expansion-panel *ngIf="movie.credits?.cast">
+      <mat-expansion-panel-header>
+        <h3>{{'CAST' | translate}} ({{movie.credits?.cast?.length}})</h3>
+      </mat-expansion-panel-header>
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let cast of movie?.credits?.cast">
+          <img src="{{getCastMemberImageUrl(cast.profile_path)}}" *ngIf="cast.profile_path">
+          <a routerLink="/person/{{cast.id}}">{{cast.name}}</a>&nbsp;
+          <span *ngIf="cast.character">- {{cast.character}}</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+  </mat-card-content>
+</mat-card>

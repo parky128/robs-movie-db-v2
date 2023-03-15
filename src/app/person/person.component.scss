@@ -1,0 +1,10 @@
+@import '../../globals.scss';
+
+:host {
+  & .profile-details {
+   @include profile-details()
+  }
+  .person-summary {
+    @include main-record-summary()
+  }
+}

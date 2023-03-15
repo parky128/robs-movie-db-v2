@@ -1,0 +1,15 @@
+<mat-form-field>
+  <mat-icon matPrefix>search</mat-icon>
+  <input type="text" aria-label="Number" matInput [formControl]="search" [matAutocomplete]="auto">
+  <!-- <mat-placeholder class="placeholder"><mat-icon>search</mat-icon>{{"SEARCH_PLACEHOLDER" | translate}}</mat-placeholder> -->
+  <button mat-button *ngIf="search.value" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()" class="clear-search">
+    <mat-icon>close</mat-icon>
+  </button>
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="clearSearch()" autoActiveFirstOption>
+    <mat-option *ngFor="let result of searchResults" [value]="result" [ngSwitch]="result.media_type" style="height:unset;line-height:unset">
+      <app-search-result-movie *ngSwitchCase="'movie'" [movieSearchResult]="result" (click)="goToMovie(result)"></app-search-result-movie>
+      <app-search-result-tv *ngSwitchCase="'tv'" [tvSearchResult]="result" (click)="goToTVShow(result)"></app-search-result-tv>
+      <app-search-result-person *ngSwitchCase="'person'" [personSearchResult]="result" (click)="goToPerson(result)"></app-search-result-person>
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { LanguageService } from '../language/language.service';
+import { Movie } from 'src/app/models/Movie.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class TmdbMovieService {
       `${environment.apiUrl}/${environment.apiVersion}/movie/${id}`,
       `?api_key=${environment.apiKey}&append_to_response=credits&language=${this.languageService.getLanguage()}`
     ].join('');
-    return this.http.get(url);
+    return this.http.get<Movie>(url);
   }
 
 }

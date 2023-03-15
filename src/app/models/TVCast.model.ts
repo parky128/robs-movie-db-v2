@@ -15,4 +15,5 @@ export class TVCast {
   backdrop_path?: string;
   overview?: string;
   origin_country?: Array<string>;
+  profile_path?: string;
 }

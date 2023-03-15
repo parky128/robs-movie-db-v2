@@ -1,0 +1,39 @@
+<mat-card>
+  <h1>{{person.name}}</h1>
+  <mat-card-content>
+    <div class="profile-details">
+      <img src="{{personProfileUrl}}">
+      <div class="person-summary">
+        <div *ngIf="person.birthday"><label>{{'PERSON.BORN' | translate}}:</label> {{person.birthday | date : 'longDate'}}</div>
+        <div *ngIf="person.place_of_birth"><label>{{'PERSON.PLACE_OF_BIRTH' | translate}}:</label> {{person.place_of_birth }}</div>
+        <div *ngIf="person.deathday"><label>{{'PERSON.DEATHDAY' | translate}}:</label> {{person.deathday | date : 'longDate'}}</div>
+        <div *ngIf="person.known_for_department"><label>{{'PERSON.BEST_KNOWN_FOR' | translate}}:</label> {{person.known_for_department}} </div>
+        <a *ngIf="person.imdb_id" href="https://www.imdb.com/name/{{person.imdb_id}}" target="_blank">{{'PERSON.IMDB_PROFILE' | translate}}</a>
+      </div>
+    </div>
+    <h2>{{'PERSON.BIOGRAPHY' | translate}}</h2>
+    <p>
+      {{person.biography}}
+    </p>
+    <mat-expansion-panel *ngIf="person.movie_credits">
+      <mat-expansion-panel-header>
+        <h3>{{'PERSON.MOVIE_APPEARANCES' | translate}} ({{person.movie_credits.cast?.length}})</h3>
+      </mat-expansion-panel-header>
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let cast of person.movie_credits.cast">
+          <span *ngIf="cast.character">{{cast.character}} {{'IN' | translate}}&nbsp;</span><a routerLink="/movie/{{cast.id}}">{{cast.title}}
+            ({{cast.release_date | date : 'yyyy'}})</a></mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+    <mat-expansion-panel *ngIf="person.tv_credits">
+      <mat-expansion-panel-header>
+        <h3>{{'PERSON.TV_APPEARANCES' | translate}} ({{person.tv_credits.cast?.length}})</h3>
+      </mat-expansion-panel-header>
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let cast of person.tv_credits.cast">
+          <span *ngIf="cast.character">{{cast.character}} {{'IN' | translate}}&nbsp;</span><a routerLink="/tv/{{cast.id}}">{{cast.name}}
+            ({{cast.first_air_date | date : 'yyyy'}})</a></mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,36 @@
+<mat-card>
+  <h1>{{tvShow.name}} ({{tvShow.first_air_date | date : 'yyyy'}})</h1>
+  <mat-card-content>
+    <div class="profile-details">
+      <img src="{{tvShowPosterUrl}}">
+      <div class="show-summary">
+        <div *ngIf="tvShow.genres"><label>{{'GENRES' | translate}}: </label> <span *ngFor="let genre of tvShow.genres; last as isLast">{{genre.name}}<span *ngIf="!isLast"> | </span></span></div>
+        <div *ngIf="tvShow.first_air_date"><label>{{'TV_SHOW.FIRST_AIR_DATE' | translate}}:</label> {{tvShow.first_air_date | date : 'longDate'}}</div>
+        <div *ngIf="tvShow.last_air_date"><label>{{'TV_SHOW.LAST_AIR_DATE' | translate}}:</label> {{tvShow.last_air_date | date : 'longDate'}}</div>
+        <div *ngIf="tvShow.number_of_seasons"><label>{{'TV_SHOW.SEASONS' | translate}}:</label> {{tvShow.number_of_seasons}}</div>
+        <div *ngIf="tvShow.number_of_episodes"><label>{{'TV_SHOW.EPISODES' | translate}}:</label> {{tvShow.number_of_episodes}}</div>
+        <div *ngIf="tvShow.status"><label>{{'TV_SHOW.STATUS' | translate}}:</label> {{tvShow.status}}</div>
+        <div *ngIf="tvShow.popularity"><label>{{'POPULARITY' | translate}}:</label> {{tvShow.popularity}} </div>
+        <div *ngIf="tvShow.vote_average"><label>{{'VOTE_AVERAGE' | translate}}:</label> {{tvShow.vote_average}} </div>
+        <div *ngIf="tvShow.vote_count"><label>{{'VOTE_COUNT' | translate}}:</label> {{tvShow.vote_count}}</div>
+        <a *ngIf="tvShow.homepage" href="{{tvShow.homepage}}" target="_blank">{{'VISIT_HOME_PAGE' | translate}}</a>
+      </div>
+    </div>
+    <h2>{{'OVERVIEW' | translate}}</h2>
+    <p>
+      {{tvShow.overview}}
+    </p>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <h3>Cast ({{tvShow.credits?.cast?.length}})</h3>
+      </mat-expansion-panel-header>
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let cast of tvShow.credits?.cast">
+          <img src="{{getCastMemberImageUrl(cast.profile_path)}}" *ngIf="cast.profile_path">
+          <a routerLink="/person/{{cast.id}}">{{cast.name}}</a>
+          <span *ngIf="cast.character"> - {{cast.character}}</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+  </mat-card-content>
+  </mat-card>
