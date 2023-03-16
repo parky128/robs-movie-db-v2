@@ -2,6 +2,7 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
 import { AppRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +30,7 @@ export function appConfigProvider(apiConfigService: ApiConfigService) {
     RouterModule.forRoot( AppRoutes, { useHash: true } ),
     MatToolbarModule,
     MatProgressSpinnerModule,
+    MatButtonModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
