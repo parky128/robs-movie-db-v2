@@ -26,6 +26,8 @@ $base-padding: 16px;
 @mixin profile-details() {
   display: flex;
   flex: 1;
+  padding-top: 16px;
+  padding-bottom: 16px;
   > img {
     border: solid 1px;
   }
