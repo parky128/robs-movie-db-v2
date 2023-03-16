@@ -1,27 +1,33 @@
-# RobsMovieDbV2
+# Robs Movie Database v2 (RMDb)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.3.
+This is a new version of the original [Robs Movie Database](https://github.com/parky128/robs-movie-db) updated to use latest Angular and Angular Material dependencies.
 
-## Development server
+Key Features:
+- Search for Actors, Actresses, Movies and TV Shows
+- Advanced search feature for more custom search types 
+  - Note that you can currently search for movies staring chosen actors, actresses, genres and release dates, more criteria options are planned for a future release!
+- Internationalisation support for both English and German
+  - DISCLAIMER: German translation came from Google Translate so if there are any mistakes then please raise an issue on this repo and I will sort asap!
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+After cloning this repo locally, make sure to install required dependencies with `npm install`
 
-## Build
+**NOTE:** Please check you have nodejs installed with `node -v` in your terminal, you should see the nodejs version number installed printed after entering this command, if you don't you probably need nodejs installed. I recommend to use [node version manager](https://github.com/nvm-sh/nvm), and for this version of angular I am using nodejs version `18.12.1`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Running Locally
+
+Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To follow, see [this issue](https://github.com/parky128/robs-movie-db-v2/issues/3)
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+To follow, see [this issue](https://github.com/parky128/robs-movie-db-v2/issues/4)
 
-## Further help
+## Contributing
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Feel free to open a Pull Request with any suggested changes, or raise an issue for triaging
