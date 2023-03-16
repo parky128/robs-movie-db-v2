@@ -13,7 +13,7 @@ This is a new version of the original [Robs Movie Database](https://github.com/p
 
 Refer to the Issues list to see what problems have been acknowledged so far and plan to be worked on.
 
-- There is an obvious stylistic/behaviour issue with the updated implementation of the main toolbar containing the search/auto-complete components
+A project board has been setup to track the status of issues [here](https://github.com/users/parky128/projects/1/views/1?layout=board)
 
 ## Getting Started
 
