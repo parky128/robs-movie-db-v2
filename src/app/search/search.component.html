@@ -1,7 +1,6 @@
 <mat-form-field>
   <mat-icon matPrefix>search</mat-icon>
-  <input type="text" aria-label="Number" matInput [formControl]="search" [matAutocomplete]="auto">
-  <!-- <mat-placeholder class="placeholder"><mat-icon>search</mat-icon>{{"SEARCH_PLACEHOLDER" | translate}}</mat-placeholder> -->
+  <input type="text" aria-label="Number" matInput [formControl]="search" [matAutocomplete]="auto" placeholder="{{'SEARCH_PLACEHOLDER' | translate}}" />
   <button mat-button *ngIf="search.value" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()" class="clear-search">
     <mat-icon>close</mat-icon>
   </button>
