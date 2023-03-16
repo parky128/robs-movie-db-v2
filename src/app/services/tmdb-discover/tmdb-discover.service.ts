@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { LanguageService } from '../language/language.service';
+import { SearchResults } from 'src/app/models/SearchResults.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,6 @@ export class TmdbDiscoverService {
       `${environment.apiUrl}/${environment.apiVersion}/discover/movie?api_key=${environment.apiKey}`,
       `&${searchTerm}&language=${this.languageService.getLanguage()}`
     ].join('');
-    return this.http.get(url);
+    return this.http.get<SearchResults>(url);
   }
 }
