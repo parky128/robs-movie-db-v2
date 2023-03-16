@@ -1,0 +1,44 @@
+@import "../../globals";
+
+:host {
+  .actors-search {
+    width: 50%
+  }
+  .checkbox-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-top: $base-padding;
+    mat-checkbox {
+      width: 33%;
+    }
+  }
+  .mat-chip-list-wrapper {
+    flex-direction: row;
+  }
+  .search-result-item {
+    :hover{
+      @include mat-nav-list-item-hover()
+    }
+  }
+  .criteria-section {
+    background-color: rgba(black, 0.04);
+    margin-top: 16px;
+    padding: $base-padding;
+    span {
+      margin-right: 16px;
+    }
+  }
+  .button-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    button:first-of-type {
+      margin-right: 16px;
+    }
+  }
+  .search-results {
+    margin-top: 16px;
+  }
+  
+}

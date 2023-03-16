@@ -1,0 +1,88 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{'ADVANCED_SEARCH.HEADING' | translate}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+      {{'ADVANCED_SEARCH.INSTRUCTIONS' | translate}}
+    <div class="criteria-section">
+      <h2>{{'ADVANCED_SEARCH.INCLUDE_ACTORS_ACTRESSES' | translate}}:</h2>
+      <mat-form-field class="actors-search">
+        <input type="text" aria-label="Number" matInput [formControl]="search" [matAutocomplete]="auto">
+        <!-- <mat-placeholder class="placeholder"><mat-icon>search</mat-icon>{{'ADVANCED_SEARCH.SEARCH_ACTOR_ACTRESS_PLACEHOLDER' | translate}}</mat-placeholder> -->
+        <button *ngIf="search.value" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
+          <mat-icon>close</mat-icon>
+        </button>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="addSelectedPerson($event.option.value)" autoActiveFirstOption>
+          <mat-option *ngFor="let person of personSearchResults" [value]="person">
+            {{$any(person).name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-chip-set>
+        <mat-chip *ngFor="let person of selectedPersons">
+          {{person.name}}
+          <button matChipRemove aria-label="Clear" (click)="removeSelectedPerson(person)">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-chip>
+      </mat-chip-set>
+    </div>
+    <div class="criteria-section">
+      <h2>{{'ADVANCED_SEARCH.INCLUDE_GENRES' | translate}}:</h2>
+      <div class="checkbox-container">
+        <mat-checkbox *ngFor="let genre of genres" (change)="setGenres(genre)" [checked]="genreSelected(genre)">{{genre.name}}</mat-checkbox>
+      </div>
+    </div>
+    <div class="criteria-section">
+      <h2>{{'ADVANCED_SEARCH.INCLUDE_RELEASE_DATES' | translate}}:</h2>
+      <div>
+        <span>{{'ADVANCED_SEARCH.RELEASE_DATE_GTE' | translate}}:</span>
+        <mat-form-field>
+          <input matInput [matDatepicker]="fromDatePicker" placeholder="{{'ADVANCED_SEARCH.DATE_PICKER_PLACEHOLDER' | translate}}" [formControl]="fromReleaseDateInput" [max]="maxDate">
+          <mat-datepicker-toggle matSuffix [for]="fromDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #fromDatePicker></mat-datepicker>
+        </mat-form-field>
+        <button *ngIf="fromReleaseDate" mat-button mat-icon-button (click)="clearFromReleaseDate()"><mat-icon>close</mat-icon></button>
+      </div>
+      <div>
+        <span>{{'ADVANCED_SEARCH.RELEASE_DATE_LTE' | translate}}:</span>
+        <mat-form-field>
+          <input matInput [matDatepicker]="toDatePicker" placeholder="{{'ADVANCED_SEARCH.DATE_PICKER_PLACEHOLDER' | translate}}" [formControl]="toReleaseDateInput" [min]="fromReleaseDate" [max]="maxDate">
+          <mat-datepicker-toggle matSuffix [for]="toDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #toDatePicker></mat-datepicker>
+        </mat-form-field>
+        <button *ngIf="toReleaseDate" mat-button mat-icon-button (click)="clearToReleaseDate()"><mat-icon>close</mat-icon></button>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="button-actions">
+      <button mat-raised-button color="primary" (click)="performSearch()">{{'BUTTON_ACTIONS.SEARCH' | translate}}</button>
+      <button mat-raised-button color="primary" (click)="clearSearch()">{{'BUTTON_ACTIONS.CLEAR' | translate}}</button>
+    </div>
+  </mat-card-actions>
+  
+</mat-card>
+
+<mat-card *ngIf="movieSearchResults" class="search-results">
+  <mat-card-header>
+    <h2>{{'ADVANCED_SEARCH.SEARCH_RESULTS' | translate}} ({{movieSearchResults.total_results}})</h2>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="search-result-item" *ngFor="let movie of movieSearchResults.results" (click)="goToMovie(movie)">
+      <app-search-result-movie [movieSearchResult]="movie"></app-search-result-movie>
+    </div>
+    <div>
+        {{'PAGE' | translate}} {{movieSearchResults.page}} {{'OF' | translate}} {{movieSearchResults.total_pages}}
+      <button mat-icon-button (click)="getResultsPage(movieSearchResults.page - 1)" [disabled]="movieSearchResults.page === 1">
+        <mat-icon aria-label="Next">chevron_left</mat-icon>
+      </button>
+      <button mat-icon-button (click)="getResultsPage(movieSearchResults.page + 1)" [disabled]="movieSearchResults.page===movieSearchResults.total_pages">
+        <mat-icon aria-label="Previous">chevron_right</mat-icon>
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+
+
