@@ -7,12 +7,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeModule } from './home/home.module';
 import { ApiConfigService } from './services/api-config/api-config.service';
 import { RouterModule } from '@angular/router';
-import { SearchComponent } from './search/search.component';
 import { SearchModule } from './search/search.module';
+import { LanguageModule } from './language/language.module';
+import { APIRequestInterceptorService } from './services/api-request-interceptor/api-request-interceptor.service';
 
 export function appConfigProvider(apiConfigService: ApiConfigService) {
   return () => apiConfigService.getApiConfig();
@@ -37,10 +38,12 @@ export function appConfigProvider(apiConfigService: ApiConfigService) {
       }
     }),
     HomeModule,
-    SearchModule
+    SearchModule,
+    LanguageModule
   ],
   providers: [
-    { provide: APP_INITIALIZER, useFactory: appConfigProvider, deps: [ApiConfigService], multi: true }
+    { provide: APP_INITIALIZER, useFactory: appConfigProvider, deps: [ApiConfigService], multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: APIRequestInterceptorService, multi: true },
   ],
   bootstrap: [AppComponent]
 })

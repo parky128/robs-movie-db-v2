@@ -3,8 +3,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LanguageService } from './services/language/language.service';
 import { SpinnerService } from './services/spinner/spinner.service';
 import { Subscription } from 'rxjs';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { Router, NavigationEnd, Event } from '@angular/router';
+import { delay, filter } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -36,20 +36,23 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.spinnerSubscription = this.spinnerService.showSpinner.subscribe((show) => {
-      this.showSpinner = show;
-    });
+    this.spinnerSubscription = this.spinnerService
+        .showSpinner
+        .pipe(delay(0))
+        .subscribe((show) => {
+          this.showSpinner = show;
+      });
 
     this.languageSubscription = this.languageService.selectedLanguage.subscribe(() => {
       window.location.reload();
     });
 
-    // this.router.events.pipe(
-    //   filter((event: Event) => event instanceof NavigationEnd)
-    // ).subscribe((event: NavigationEnd) =>  {
-    //   this.showSearch = event.url !== '/advanced-search';
-    //   this.showHomeNavLink = event.url !== '/home';
-    // });
+    this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+    .subscribe((event: NavigationEnd) =>  {
+      this.showSearch = event.url !== '/advanced-search';
+      this.showHomeNavLink = event.url !== '/home';
+    });
   }
 
   ngOnDestroy() {
