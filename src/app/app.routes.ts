@@ -17,5 +17,9 @@ export const AppRoutes: Routes = [
     path: 'tv',
     loadChildren: () => import('./tv/tv.module').then(m => m.TvModule)
   },
+  {
+    path: 'advanced-search',
+    loadChildren: () => import('./advanced-search/advanced-search.module').then(m => m.AdvancedSearchModule)
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
