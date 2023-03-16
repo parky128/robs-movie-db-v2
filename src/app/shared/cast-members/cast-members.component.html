@@ -1,4 +1,4 @@
-<mat-expansion-panel *ngIf="castMembers; else noCastMembers">
+<mat-expansion-panel *ngIf="castMembers && castMembers.length; else noCastMembers">
   <mat-expansion-panel-header>
     <h3>{{'CAST' | translate}} ({{castMembers.length}})</h3>
   </mat-expansion-panel-header>
