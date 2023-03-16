@@ -9,6 +9,11 @@ This is a new version of the original [Robs Movie Database](https://github.com/p
 - Internationalisation support for both English and German
   - DISCLAIMER: German translation came from Google Translate so if there are any mistakes then please raise an issue on this repo and I will sort asap!
 
+## Main Changes From v1
+- Configured lazy loading
+- Refactored duplicated html fragments into separate common components
+- Handling of non existent properties - e.g. missing cast members, see [this issue](https://github.com/parky128/robs-movie-db-v2/issues/2)
+
 ## Known Issues
 
 Refer to the Issues list to see what problems have been acknowledged so far and plan to be worked on.
