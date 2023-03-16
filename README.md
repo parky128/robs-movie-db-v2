@@ -9,6 +9,12 @@ This is a new version of the original [Robs Movie Database](https://github.com/p
 - Internationalisation support for both English and German
   - DISCLAIMER: German translation came from Google Translate so if there are any mistakes then please raise an issue on this repo and I will sort asap!
 
+## Known Issues
+
+Refer to the Issues list to see what problems have been acknowledged so far and plan to be worked on.
+
+- There is an obvious stylistic/behaviour issue with the updated implementation of the main toolbar containing the search/auto-complete components
+
 ## Getting Started
 
 After cloning this repo locally, make sure to install required dependencies with `npm install`
