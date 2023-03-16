@@ -2,3 +2,31 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* I am not proud of these overrides below - need to revisit! */
+.mat-toolbar {
+  background-color: red;
+  .mat-mdc-form-field {
+    > div {
+      background-color: unset;
+    }
+    input {
+      color:#fff!important;
+    }
+  }
+  .mat-mdc-select-arrow, .mat-mdc-select-value {
+    color:#fff;
+  }
+  .mat-mdc-text-field-wrapper .mat-mdc-form-field-infix {
+    padding-top: 24px!important;
+    padding-bottom: 8px!important;
+  }
+  .mat-mdc-form-field-icon-prefix>.mat-icon {
+    padding-top: 24px;
+  }
+  
+}
+
+.cdk-overlay-container .mdc-menu-surface.mat-mdc-autocomplete-panel {
+  max-height: unset;
+}
