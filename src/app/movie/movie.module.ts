@@ -9,6 +9,7 @@ import { MovieComponent } from './movie.component';
 import { MovieRoutes } from './movie.routes';
 import { RouterModule } from '@angular/router';
 import { MovieRouteResolver } from './movie-routing.resolver';
+import { CastMembersModule } from '../shared/cast-members/cast-members.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { MovieRouteResolver } from './movie-routing.resolver';
     MatExpansionModule,
     MatListModule,
     RouterModule.forChild(MovieRoutes),
-    TranslateModule
+    TranslateModule,
+    CastMembersModule
   ],
   declarations: [
     MovieComponent

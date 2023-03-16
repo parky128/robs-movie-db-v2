@@ -1,5 +1,8 @@
 <mat-card>
-  <h1>{{tvShow.name}} ({{tvShow.first_air_date | date : 'yyyy'}})</h1>
+  <h1></h1>
+  <mat-card-header>
+    <mat-card-title>{{tvShow.name}} ({{tvShow.first_air_date | date : 'yyyy'}})</mat-card-title>
+  </mat-card-header>
   <mat-card-content>
     <div class="profile-details">
       <img src="{{tvShowPosterUrl}}">
@@ -20,17 +23,6 @@
     <p>
       {{tvShow.overview}}
     </p>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <h3>Cast ({{tvShow.credits?.cast?.length}})</h3>
-      </mat-expansion-panel-header>
-      <mat-list role="list">
-        <mat-list-item role="listitem" *ngFor="let cast of tvShow.credits?.cast">
-          <img src="{{getCastMemberImageUrl(cast.profile_path)}}" *ngIf="cast.profile_path">
-          <a routerLink="/person/{{cast.id}}">{{cast.name}}</a>
-          <span *ngIf="cast.character"> - {{cast.character}}</span>
-        </mat-list-item>
-      </mat-list>
-    </mat-expansion-panel>
+    <app-cast-members [castMembers]="tvShow.credits?.cast"></app-cast-members>
   </mat-card-content>
   </mat-card>

@@ -9,6 +9,7 @@ import { TvComponent } from './tv.component';
 import { TvRoutes } from './tv.routes';
 import { RouterModule } from '@angular/router';
 import { TvRouteResolver } from './tv-routing.resolver';
+import { CastMembersModule } from '../shared/cast-members/cast-members.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { TvRouteResolver } from './tv-routing.resolver';
     MatExpansionModule,
     MatListModule,
     RouterModule.forChild(TvRoutes),
-    TranslateModule
+    TranslateModule,
+    CastMembersModule
   ],
   declarations: [
     TvComponent

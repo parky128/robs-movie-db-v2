@@ -1,9 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TVShow } from '../models/TVShow.model';
 import { ActivatedRoute } from '@angular/router';
 import { ApiConfigService } from '../services/api-config/api-config.service';
-import { Subscription } from 'rxjs';
-import { MovieCast } from '../models/MovieCast.model';
 
 @Component({
   selector: 'app-tv',

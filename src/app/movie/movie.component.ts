@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movie } from '../models/Movie.model';
 import { ApiConfigService } from '../services/api-config/api-config.service';
-import { MovieCast } from '../models/MovieCast.model';
-import { TmdbMovieService } from '../services/tmdb-movie/tmdb-movie.service';
 
 @Component({
   selector: 'app-movie',
@@ -17,8 +15,7 @@ export class MovieComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private apiConfigService: ApiConfigService,
-    private tmdbMovieService: TmdbMovieService
+    private apiConfigService: ApiConfigService
   ) {
   }
 

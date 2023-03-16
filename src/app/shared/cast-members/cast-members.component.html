@@ -1,0 +1,18 @@
+<mat-expansion-panel *ngIf="castMembers; else noCastMembers">
+  <mat-expansion-panel-header>
+    <h3>{{'CAST' | translate}} ({{castMembers.length}})</h3>
+  </mat-expansion-panel-header>
+  <mat-list role="list">
+    <mat-list-item role="listitem" *ngFor="let cast of castMembers">
+      <div class="cast-summary">
+        <img src="{{getCastMemberImageUrl(cast.profile_path)}}" *ngIf="cast.profile_path">
+        <a routerLink="/person/{{cast.id}}">{{cast.name}}</a>&nbsp;
+        <span *ngIf="cast.character">- {{cast.character}}</span>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</mat-expansion-panel>
+<ng-template #noCastMembers>
+  <h2>{{'CAST' | translate}}</h2>
+  Sorry, no cast information available
+</ng-template>

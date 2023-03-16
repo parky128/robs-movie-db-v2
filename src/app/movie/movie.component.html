@@ -1,6 +1,9 @@
 <mat-card>
-  <h1>{{movie.title}} ({{movie.release_date | date : 'yyyy'}})</h1>
-  <mat-card-subtitle>{{movie.tagline}}</mat-card-subtitle>
+  <mat-card-header>
+    <mat-card-title>{{movie.title}} ({{movie.release_date | date : 'yyyy'}})</mat-card-title>
+    <mat-card-subtitle>{{movie.tagline}}</mat-card-subtitle>
+  </mat-card-header>
+  
   <mat-card-content>
     <div class="profile-details">
       <img src="{{moviePosterUrl}}">
@@ -19,17 +22,6 @@
     <p>
       {{movie.overview}}
     </p>
-    <mat-expansion-panel *ngIf="movie.credits?.cast">
-      <mat-expansion-panel-header>
-        <h3>{{'CAST' | translate}} ({{movie.credits?.cast?.length}})</h3>
-      </mat-expansion-panel-header>
-      <mat-list role="list">
-        <mat-list-item role="listitem" *ngFor="let cast of movie?.credits?.cast">
-          <img src="{{getCastMemberImageUrl(cast.profile_path)}}" *ngIf="cast.profile_path">
-          <a routerLink="/person/{{cast.id}}">{{cast.name}}</a>&nbsp;
-          <span *ngIf="cast.character">- {{cast.character}}</span>
-        </mat-list-item>
-      </mat-list>
-    </mat-expansion-panel>
+    <app-cast-members [castMembers]="movie.credits?.cast"></app-cast-members>
   </mat-card-content>
 </mat-card>
