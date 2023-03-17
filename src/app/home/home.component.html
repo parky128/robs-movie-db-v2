@@ -2,12 +2,13 @@
   {{ 'WELCOME' | translate }}
 </p>
 <div class="instruction-text" [innerHTML]="'INSTRUCTIONS' | translate"></div>
-<mat-card>
+<mat-card *ngIf="trendingData$ | async as trending">
   <mat-card-content>
+     <!-- TODO: Refactor the below fragments into a single common trending item component -->
     <div>
       <h2>{{'TRENDING.MOVIES_HEADING' | translate}}</h2>
       <mat-list class="trending">
-        <mat-list-item *ngFor="let movie of trendingMovies; let i = index;">
+        <mat-list-item *ngFor="let movie of trending.movies; let i = index;">
           <div class="trending-item">
             <div>
               <img [src]="posterUrlPath(movie.poster_path)" *ngIf="movie.poster_path" />
@@ -23,7 +24,7 @@
     <div>
       <h2>{{'TRENDING.SHOWS_HEADING' | translate}}</h2>
       <mat-list class="trending">
-        <mat-list-item *ngFor="let show of trendingShows; let i = index;">
+        <mat-list-item *ngFor="let show of trending.shows; let i = index;">
           <div class="trending-item">
             <div>
               <img [src]="posterUrlPath(show.poster_path)" *ngIf="show.poster_path" />

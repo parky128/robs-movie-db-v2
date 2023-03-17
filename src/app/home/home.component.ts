@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { combineLatest, map, Observable } from 'rxjs';
 import { MovieSearchResult } from '../models/MovieSearchResult.model';
-import { TrendingMoviesResult } from '../models/TrendingMoviesResult';
 import { TVSearchResult } from '../models/TVSearchResult.model';
 import { ApiConfigService } from '../services/api-config/api-config.service';
 import { TmdbTrendingService } from '../services/tmdb-trending/tmdb-trending.service';
@@ -16,8 +15,9 @@ export class HomeComponent implements OnInit {
   trendingMovies: Array<MovieSearchResult> = [];
   trendingShows: Array<TVSearchResult> = [];
 
+  trendingData$: Observable<{movies: MovieSearchResult[], shows: TVSearchResult[]}>;
+
   constructor(
-    private route: ActivatedRoute,
     private apiConfigService: ApiConfigService,
     private tmdbTrendingService: TmdbTrendingService
   ) { }
@@ -27,13 +27,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    // TODO - Use rxjs here to combine these results?
-    this.tmdbTrendingService.getWeeklyTrend('movie').subscribe((trendingResults: TrendingMoviesResult) => {
-      this.trendingMovies = trendingResults.results;
-    });
-    this.tmdbTrendingService.getWeeklyTrend('tv').subscribe((trendingResults: TrendingMoviesResult) => {
-      this.trendingShows = trendingResults.results;
-    });
+    this.trendingData$ = combineLatest([
+        this.tmdbTrendingService.getWeeklyTrend('movie'),
+        this.tmdbTrendingService.getWeeklyTrend('tv')
+    ]).pipe(
+      map(([movies, shows]) =>({movies: movies.results, shows: shows.results}))
+    );
   }
 
 }
