@@ -2,8 +2,10 @@
 
 This is a new version of the original [Robs Movie Database](https://github.com/parky128/robs-movie-db) updated to use latest Angular and Angular Material dependencies.
 
+
 ## Key Features:
 - Search for Actors, Actresses, Movies and TV Shows
+- Powered by [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction)
 - Advanced search feature for more custom search types 
   - Note that you can currently search for movies staring chosen actors, actresses, genres and release dates, more criteria options are planned for a future release!
 - Internationalisation support for both English and German
@@ -32,11 +34,19 @@ Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The 
 
 ## Running unit tests
 
-Existing Jasmine tests to be migrated to Jest, see [this issue](https://github.com/parky128/robs-movie-db-v2/issues/3)
+Tests are written in Jest and can be run using `npm run test`
+
+Existing Jasmine based tests still to be migrated to Jest, see [this issue](https://github.com/parky128/robs-movie-db-v2/issues/3)
 
 ## Running end-to-end tests
 
-Existing Protractor test scenarios to be migrated to Cypress, see [this issue](https://github.com/parky128/robs-movie-db-v2/issues/4)
+Cypress testing has been configured on this repo, the test runner application can be launched via `npx cypress open`.
+
+On opening you will be presented with a screen to select the type of testing to interact with, click the `Component Testing` option and select a browser to run the tests in.
+
+This will launch a specs view inside the selected browser where you can click a spec to see it's test scenarios execute for real.
+
+Existing Protractor test scenarios are still to be migrated to Cypress, see [this issue](https://github.com/parky128/robs-movie-db-v2/issues/4)
 
 ## Contributing
 
